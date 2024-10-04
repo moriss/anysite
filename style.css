@@ -1,0 +1,20 @@
+/**backword compatibility for flexbox containers.**/
+/**
+.container{}
+{Only use this at targeted divs that are using flexbox
+display: -webkit-box;
+display: -ms-flexbox;
+display:flex;
+}**/
+
+/**This ensures that all elements (and their ::before and ::after pseudo-elements) use border-box**/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin:0;/**Both eliminates default browser spacing**/
+    padding:0;
+}
+
+.top-bar {height:36px; width:100%; background:red;
+border-top:1px solid white;}
+
+#envelope,#phone {height: 25px;}
