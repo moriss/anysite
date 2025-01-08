@@ -1,0 +1,38 @@
+/**backword compatibility for flexbox containers.**/
+/**
+.container{}
+{Only use this at targeted divs that are using flexbox
+display: -webkit-box; display: -ms-flexbox;
+display:flex;
+}**/
+
+/**This ensures that all elements (and their ::before and ::after pseudo-elements) use border-box**/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin:0;/**Both eliminates default browser spacing**/
+    padding:0;
+}
+
+.top-bar {display: -webkit-box; display: -ms-flexbox;
+	height:36px; width:100%; background:red;
+border-top:1px solid white; display:flex;  justify-content:space-between;}
+
+.top-bar-left , .top-bar-right {display:flex;}
+
+.top-bar-left {margin-left:130px; }
+.top-bar-left div {padding-right:15px;}
+
+
+
+
+
+
+.main-menu {display: -webkit-box; display: -ms-flexbox;
+	height:80px; width:100%; background:blue;
+border-top:1px solid white; display:flex;}
+
+.site-title {display: -webkit-box; display: -ms-flexbox;
+	height:158px; width:100%; background:green;
+border-top:1px solid white; display:flex;}
+
+#envelope,#phone {height: 25px;}

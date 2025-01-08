@@ -1,20 +1,154 @@
 /**backword compatibility for flexbox containers.**/
 /**
 .container{}
-{Only use this at targeted divs that are using flexbox
-display: -webkit-box;
-display: -ms-flexbox;
+{Only use this at targeted divs that are using flexbox:
+display: -webkit-box; display: -ms-flexbox;
 display:flex;
 }**/
+header {}
+html {font-size: 100%; /* 1rem = 16px by default */}
+
+h1 {font-size: 1.8rem; /* Fallback for older browsers */
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); /* Fluid size */}
+h2 {font-size: 1.5rem; /* Fallback */
+    font-size: clamp(1.3rem, 2.5vw + 1rem, 2rem); /* Responsive*/}
+h3 {font-size: 1.25rem; /* Fallback */
+    font-size: clamp(1.1rem, 2vw + 0.75rem, 1.75rem); /*Responsive*/}
+h4 {font-size: 1.125rem; /* Fallback */
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.5rem); /*Responsive*/}
+
+
+p  {font-size: 1rem; /* Fallback for older browsers */
+   font-size: clamp(0.875rem, 2vw + 0.5rem, 1.25rem); /* Fluid */}
+a  {font-size: 0.95rem; /* Fallback for older browsers */
+   font-size: clamp(0.85rem, 1.5vw + 0.4rem, 1.1rem); /* Fluid */}
+small {font-size: 0.8rem; /* Fallback for older browsers */
+      font-size: clamp(0.75rem, 1vw + 0.3rem, 0.9rem); /* Fluid*/}
+      
+/*Spacing for h,p and small tags*/
+h1 {margin-top: 24px;margin-bottom: 16px;}
+h2 {margin-top: 20px;margin-bottom: 14px;}
+h3 {margin-top: 16px;margin-bottom: 12px;}
+p {margin-top: 0;margin-bottom: 16px;line-height: 1.5;}
+small{margin-top: 4px;margin-bottom: 4px; 
+   margin-left: 0; margin-right: 0;line-height: 1.4;}
+
+
+
 
 /**This ensures that all elements (and their ::before and ::after pseudo-elements) use border-box**/
 *, *::before, *::after {
     box-sizing: border-box;
     margin:0;/**Both eliminates default browser spacing**/
     padding:0;
+    }
+ 
+ /*TOP BAR*/
+.top-bar-outer {display: -webkit-box; display: -ms-flexbox;
+display:flex;  justify-content:center; align-items:center;
+width:100%; height:36px;   border-top:1px solid white;
+background:rgba(222,71,63,1);  }
+
+.top-bar-inner {display: -webkit-box; display: -ms-flexbox; 
+width:80%;   display:flex; justify-content:space-between;
+ color:white;}
+
+.top-bar-right {display:flex; gap:1rem;}
+.top-bar-left {display:flex; gap:1rem;}
+
+.icon {
+color:rgb(250,250,250);
 }
 
-.top-bar {height:36px; width:100%; background:red;
-border-top:1px solid white;}
 
-#envelope,#phone {height: 25px;}
+/**/
+
+
+/*MAIN MENUE*/
+.main-menu-outer{
+display: -webkit-box; display: -ms-flexbox;
+display:flex;  justify-content:center; align-items:center;
+width:100%; height:80px;   border-top:1px solid white;
+background:rgba(255,255,255,1); 
+
+}
+
+.main-menu-inner {display: -webkit-box; display: -ms-flexbox;
+width:80%; 
+border-top:1px solid white; display:flex; justify-content:space-between;
+align-items:center;}
+
+.main-menu-right ul {display:flex; gap:1rem;}
+.main-menu-right ul li {list-style:none; }
+
+.red {color:red;}
+
+
+
+
+.banner-outer {display: -webkit-box; display: -ms-flexbox;
+	height:158px; width:100%; background:rgba(85,0,0,1);
+ display:flex; justify-content:center; align-items:center;}
+ 
+ .banner-inner
+ {
+        display: -webkit-box; display: -ms-flexbox;
+        display:flex; justify-content:flex-start; align-items:center;
+        width:80%; color:white;
+ }
+ 
+ .main-container-outer {display: -webkit-box; display: -ms-flexbox;
+display:flex;  justify-content:center;
+width:100%;   border-top:1px solid white;
+background:rgba(255,255,255,0); }
+
+.main-container-inner {display: -webkit-box; display: -ms-flexbox; 
+width:80%;  display:flex; gap:20px;
+  margin-top:84px;}
+
+main {flex-grow:2; flex-basis:66.6%; }
+main > h1:nth-of-type(2) {color:green;}
+.contact-form {flex-grow:1; flex-basis:33.3%; line-height:53px; }
+
+
+input,button {height:43px; width:280px; }
+button {background:rgba(27,108,166,0.5);}
+
+input::placeholder {font-size:3vh;}
+input {font-size:3vh;}
+
+.img-float-left {float:left; margin:0 1rem 0 0;}
+.img-float-right{float:right; margin: 0 0 0 1rem;}
+
+ul:has(img) {overflow: hidden;}
+
+ul {margin-bottom:4em;}
+
+footer {
+        width:100%; height:auto; background:black; color:white;
+}
+.inner-footer {display: -webkit-box; display: -ms-flexbox; 
+width:80%; margin:122px auto 0 auto; 
+display:flex; gap:20px; justify-content:space-between; 
+height:auto;}
+
+.footer-text {flex-grow:2; flex-basis:66.6%; }
+.footer-contact {flex-grow:1; flex-basis:33.3%;}
+.outer-copyright {width:100%; height:auto; background:grey;}
+.copyright {margin:auto; width:80%;}
+
+#online-chat-logo {position:fixed; right:20px; bottom:30px; height:75px; border-radius:50%; cursor: pointer;}
+
+/*
+.main-container-inner {display: -webkit-box; display: -ms-flexbox; 
+width:80%;  display:flex; gap:20px;
+  margin-top:84px;}
+
+main {flex-grow:2; flex-basis:66.6%; }
+main > h1:nth-of-type(2) {color:green;}
+.contact-form {flex-grow:1; flex-basis:33.3%; line-height:53px; }
+
+
+
+
+
